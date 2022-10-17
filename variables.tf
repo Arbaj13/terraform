@@ -15,7 +15,7 @@ variable "username" {
   
 }
 variable "db_name" {
-  default = "admin"
+  default = "accounts"
 
 }
 variable "db_user" {
