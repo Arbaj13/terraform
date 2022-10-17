@@ -20,7 +20,7 @@ resource "aws_db_instance" "vprofile-rds" {
   name                   = var.db_name
   username               = var.db_user
   password               = var.db_pass
-  parameter_group_name   = "default.mysql5.6"
+  parameter_group_name   = "default.mysql5.7"
   multi_az               = "false"
   publicly_accessible    = "false"
   skip_final_snapshot    = true
