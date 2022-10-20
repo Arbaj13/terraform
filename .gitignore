@@ -1,3 +1,5 @@
+.*
+terraform.*
 vprofile
 vprofile.pub
 .terraform.lock.hcl
