@@ -23,6 +23,17 @@ resource "aws_instance" "jenkins" {
   vpc_security_group_ids = ["sg-081c6225252d4728d"]
 
 }
+resource "aws_instance" "sonarqube" {
+  ami = lookup(var.AMIS, var.AWS_REGION)
+  instance_type        = "t2.micro"
+  key_name             = "awsoct"
+  vpc_security_group_ids = ["sg-076688bb2766bfacc"]
+  user_data = file("sonar.sh")
+   tags = {
+    Name = "SonarQube Server"
+
+  }
+}
 
 resource "aws_instance" "kops" {
   ami                  = lookup(var.AMIS, var.AWS_REGION)
