@@ -24,12 +24,12 @@ resource "aws_instance" "jenkins" {
 
 }
 resource "aws_instance" "sonarqube" {
-  ami = lookup(var.AMIS, var.AWS_REGION)
-  instance_type        = "t2.micro"
-  key_name             = "awsoct"
+  ami                    = lookup(var.AMIS, var.AWS_REGION)
+  instance_type          = "t2.micro"
+  key_name               = "awsoct"
   vpc_security_group_ids = ["sg-076688bb2766bfacc"]
-  user_data = file("sonar.sh")
-   tags = {
+  user_data              = file("sonar.sh")
+  tags = {
     Name = "SonarQube Server"
 
   }
@@ -53,7 +53,7 @@ resource "aws_instance" "kops" {
         sudo kops create cluster --name=kp.arbaj13.shop   --state=s3://arbajkopsstate   --zones=us-east-1a,us-east-1b   --node-count=2 --node-size=t2.micro --master-size=t2.medium --dns-zone=kp.arbaj13.shop
         sudo kops update cluster --name=kp.arbaj13.shop --state=s3://arbajkopsstate --yes --admin
         EOF
-         
+
   tags = {
     Name = "Kops Server"
 
