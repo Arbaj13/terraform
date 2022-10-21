@@ -25,7 +25,7 @@ resource "aws_instance" "jenkins" {
 }
 resource "aws_instance" "sonarqube" {
   ami                    = lookup(var.AMIS, var.AWS_REGION)
-  instance_type          = "t2.micro"
+  instance_type          = "t2.medium"
   key_name               = "awsoct"
   vpc_security_group_ids = ["sg-076688bb2766bfacc"]
   user_data              = file("sonar.sh")
